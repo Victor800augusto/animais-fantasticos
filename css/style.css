@@ -232,7 +232,7 @@ body {
 @keyframes show {
     from {
         opacity: 0;
-        transform: translate3d(-300px, 0, 0);
+        transform: translate3d(-30px, 0, 0);
 
     }
     to {
@@ -276,7 +276,7 @@ body {
 /* Animação das secções da página*/
 .js .js-scroll {
     opacity: 0;
-    transform: translate3d(-300px, 0, 0);
+    transform: translate3d(-30px, 0, 0);
     transition: .3s;
 }
 
