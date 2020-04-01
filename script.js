@@ -8,7 +8,7 @@ function initTabNav() {
         function activeTab(index) {
             tabContent.forEach((section) => {
                 section.classList.remove('ativo');
-            })
+            });
             tabContent[index].classList.add('ativo');
         }
 
@@ -16,7 +16,7 @@ function initTabNav() {
             itemMenu.addEventListener('click', () => {
                 activeTab(index);
             })
-        })
+        });
     }
 }
 
@@ -36,8 +36,36 @@ function initAccordion() {
 
         accordionList.forEach((item) => {
             item.addEventListener('click', activeAccordion);
-        })
+        });
     }
 }
 
 initAccordion();
+
+function initScrollSuave() {
+    const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');//falando com links internos
+
+    function scrollToSection(event) {
+        event.preventDefault();
+        const href = event.currentTarget.getAttribute('href');
+        const section = document.querySelector(href);
+        const topo = section.offsetTop;
+
+        /* Faz o scroll suave*/
+        section.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+        });
+
+        /* Alternativa para o scroll suave*/
+        //window.scrollTo({
+        //    top: topo,
+        //    behavior:'smooth',
+        //});
+    }
+
+    linksInternos.forEach((link) => {
+        link.addEventListener('click', scrollToSection);
+    });
+}
+initScrollSuave();
